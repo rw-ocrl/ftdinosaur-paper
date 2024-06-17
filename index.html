@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="FT-DINOSAUR: Zero-Shot Object-Centric Representation Learning">
+  <meta property="og:title" content="FT-DINOSAUR"/>
+  <meta property="og:description" content="FT-DINOSAUR: Zero-Shot Object-Centric Representation Learning"/>
+  <meta property="og:url" content="https://dinosaur-paper.github.io/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- <meta property="og:image" content="" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+  <meta name="twitter:title" content="FT-DINOSAUR">
+  <meta name="twitter:description" content="FT-DINOSAUR: Zero-Shot Object-Centric Representation Learning">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
+  <!--<meta name="twitter:image" content="https://zadaianchuk.github.io/videosaur/static/images/sim_loss-1.png">
+  <meta name="twitter:card" content="summary_large_image">-->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="object-centric representations, scene decomposition, zero-shot transfer, dinosaur, object-centric learning, finetuning, real world">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FT-DINOSAUR</title>
+  <link rel="icon" type="image/x-icon" href="./static/images/avatar.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>-->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
+  <script src="./static/js/bulma-carousel.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">FT-DINOSAUR: Zero-Shot Object-Centric Representation Learning</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://aniket-didolkar.github.io/" target="_blank">Aniket Didolkar*</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://zadaianchuk.github.io/" target="_blank">Andrii Zadaianchuk</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://anirudh9119.github.io/" target="_blank">Anirudh Goyal</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://home.cs.colorado.edu/~mozer/index.php" target="_blank">Michael Mozer</a><sup>3</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://yoshuabengio.org/" target="_blank">Yoshua Bengio</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://is.mpg.de/person/gmartius" target="_blank">Georg Martius</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://is.mpg.de/person/mseitzer" target="_blank">Max Seitzer*</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Max Planck Institute for Intelligent Systems, Tübingen</span><br />
+              <span class="author-block"><sup>2</sup>Mila, Université de Montréal</span><br />
+              <span class="author-block"><sup>3</sup>University of Colorado, Boulder</span><br />
+
+            </div>
+            <div class="is-size-5" style="padding-top: 0.25em;">
+              <span class="author-block">*Equal Contribution</span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">              
+                
+
+              <!-- ArXiv abstract Link -->
+              <span class="link-block">
+                <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+                &nbsp;
+              </span>
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+                &nbsp;
+              </span>
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="mailto:maximilian.seitzer@tuebingen.mpg.de" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fa fa-envelope"></i>
+                </span>
+                <span>Contact</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Teaser video-->
+  <!--<section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src=""
+          type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          
+        </h2>
+      </div>
+    </div>
+  </section>-->
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Summary</h2>
+          <div class="content has-text-justified">
+            <p>
+              FT-DINOSAUR, which stands for <i>Finetuned</i> DINOSAUR, is a model for learning general-purpose object-centric representations. 
+              Once trained on a real-world dataset like COCO, FT-DINOSAUR transfers to a diverse range of real-world and synthetic domains. 
+              To achieve this FT-DINOSAUR builds upon <a href = "https://arxiv.org/abs/2209.14860" target="_blank">DINOSAUR</a> and finetunes the pretrained model used in DINOSAUR for the task of object discovery. 
+              In the paper, we show that FT-DINOSAUR achieves state-of-the-art object-discovery performance and also exhibits strong zero-shot transerability across 8 different datasets.
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div style="text-align: center;">
+            <h2 class="title is-3" style="margin-bottom: 20px;">Model</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <div style="text-align: center;">
+              <img src="./static/images/model.png" style="width: 90%;" alt="DINOSAUR model"/>
+            </div>
+            <div class="content has-text-justified"><br />
+              The FT-DINOSAUR model is trained in two stages:
+              <ul>
+               <li>In the first stage, the image is passed through a trainable DINOv2 encoder which outputs a set of patch features. 
+              These patch features are grouped by slot attention into a set of slots. The model is trained by reconstructing the original (pretrained) set of DINOv2 features. </li>
+               <li>In the second stage, we reinitialize the model from the parameters obtained from the first stage and employ a similar training pipeline as the first stage while providing input images at a higher resulution of 518 x 518.</li>
+             </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div style="text-align: center;">
+          <h2 class="title is-3">Examples</h2>
+        </div>
+  
+        <div class="columns is-centered has-text-centered" style="margin-bottom: 0;">
+          <!-- Buttons for switching between datasets -->
+          <div class="column is-one-fifth">
+            <aside class="menu">
+              <p class="menu-label">
+                Datasets
+              </p>
+              <ul class="menu-list">
+                <li><a onclick="showDataset(0)" class="click" id="click-0" style="font-weight: bold;">COCO</a></li>
+                <li><a onclick="showDataset(1)" class="click" id="click-1" style="font-weight: normal;">Pascal VOC</a></li>
+                <li><a onclick="showDataset(2)" class="click" id="click-2" style="font-weight: normal;">EntitySeg</a></li>
+                <li><a onclick="showDataset(3)" class="click" id="click-3" style="font-weight: normal;">CLEVrTex</a></li>
+                <li><a onclick="showDataset(4)" class="click" id="click-4" style="font-weight: normal;">MoVI-C</a></li>
+                <li><a onclick="showDataset(5)" class="click" id="click-5" style="font-weight: normal;">MoVI-E</a></li>
+                <li><a onclick="showDataset(6)" class="click" id="click-6" style="font-weight: normal;">SCANNET</a></li>
+            </ul>
+            </aside>
+          </div>
+  
+
+          <div class="column is-four-fifths">
+            <!-- Dataset 1: FT-DINOSAUR -->
+            <div class="item" id="dataset-0" style="display: block;">
+                <iframe src="image_tables/coco.html" style="width: 100%; height: 520px; border: none;"></iframe>
+            </div>
+  
+            <!-- Dataset 2: MOVi-C -->
+            <div class="item" id="dataset-1" style="display: none;">
+                <iframe src="image_tables/voc.html" style="width: 100%; height: 520px; border: none;"></iframe>
+            </div>
+
+            <div class="item" id="dataset-2" style="display: none;">
+                <iframe src="image_tables/entityseg.html" style="width: 100%; height: 520px; border: none;"></iframe>
+            </div>
+            <div class="item" id="dataset-3" style="display: none;">
+                <iframe src="image_tables/clevrtex.html" style="width: 100%; height: 520px; border: none;"></iframe>
+            </div>
+            <div class="item" id="dataset-4" style="display: none;">
+                <iframe src="image_tables/movi_c.html" style="width: 100%; height: 520px; border: none;"></iframe>
+            </div>
+            <div class="item" id="dataset-5" style="display: none;">
+                <iframe src="image_tables/movi_e.html" style="width: 100%; height: 520px; border: none;"></iframe>
+            </div>
+            <div class="item" id="dataset-6" style="display: none;">
+                <iframe src="image_tables/scannet.html" style="width: 100%; height: 520px; border: none;"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="is-centered has-text-centered">
+            <p>FT-DINOSAUR is trained on COCO and transferred to 7 other datasets. We visualize the masks obtained from FT-DINOSAUR in comparison to other baselines on all the datasets.</h2>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      // JavaScript to handle switching between datasets
+      function showDataset(index) {
+        // Hide all dataset items
+        var datasets = document.querySelectorAll('.item');
+        datasets.forEach(function(dataset) {
+          dataset.style.display = 'none';
+        });
+        var clicks = document.querySelectorAll('.click');
+        clicks.forEach(function(click) {
+          click.style.fontWeight = 'normal';
+        });
+  
+        // Show the selected dataset
+        var selectedDataset = document.getElementById('dataset-' + index);
+        var selectedClick = document.getElementById('click-' + index);
+        if (selectedDataset) {
+          selectedDataset.style.display = 'block';
+          selectedClick.style.fontWeight = 'bold';
+        }
+      }
+    </script>
+  </section>
+
+
+
+  <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div style="text-align: center;">
+            <h2 class="title table-title" style="margin-bottom: 20px;">Comparison to Prior Work</h2>
+        </div>
+            <p class="description">
+                Comparison performed on the COCO dataset. FT-DINOSAUR uses a ViT-B/14 encoder with top-k decoding and high-resolution adaptation. Results for DINOSAUR and FT-DINOSAUR average over 3 seeds.
+                SPOT, SlotDiffusion, SAM were evaluated using official checkpoints.
+            </p>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Model</th>
+                        <th style="width: 17.5%;">FG-ARI</th>
+                        <th style="width: 17.5%;">mBO</th>
+                        <th style="width: 17.5%;">P-ARI</th>
+                        <th style="width: 17.5%;">PQ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2209.14860" target="_blank">DINOSAUR </a></td>
+                        <td>40.5</td>
+                        <td>27.7</td>
+                        <td>37.1</td>
+                        <td>14.4</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2305.11281" target="_blank">SlotDiffusion </a></td>
+                        <td>37.3</td>
+                        <td>31.4</td>
+                        <td>47.6</td>
+                        <td>21.0</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2312.00648" target="_blank">SPOT </a></td>
+                        <td>37.0</td>
+                        <td>34.8</td>
+                        <td>52.4</td>
+                        <td>21.3</td>
+                    </tr>
+                    
+                    <tr style="background-color: rgb(169, 218, 233);" class="highlight-row">
+                        <div><td><b>FT-DINOSAUR</b></td></div>
+                        <div><td><b>48.8</b></td></div>
+                        <div><td><b>36.3</b></td></div>
+                        <div><td><b>49.4</b></td></div>
+                        <div><td><b>23.9</b></td></div>
+                    </tr>
+
+                    
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2304.02643" target="_blank">SAM (comp.) </a></td>
+                        <td>12.1</td>
+                        <td>19.0</td>
+                        <td>10.8</td>
+                        <td>9.4</td>
+                    </tr>
+                    <tr style="background-color: rgb(137, 219, 193);">
+                        <td><a href="https://arxiv.org/abs/2304.02643" target="_blank">SAM (best) </a></td>
+                        <td>44.9</td>
+                        <td>56.9</td>
+                        <td>54.4</td>
+                        <td>10.9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div style="text-align: center;">
+                <h2 class="title table-title" style="margin-bottom: 20px;">Zero-shot Performance</h2>
+            </div>
+            <p class="description">
+                We study the zero-shot transfer capabilities of the proposed FT-DINOSAUR approach in comparison to state-of-the-art of unsupervised and supervised object-discovery approaches. All the unsupervised approaches are trained on COCO.
+            </p>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;"></th>
+                        <th style="width: 17.5%;" colspan="2">MOVi-C</th>
+                        <th style="width: 17.5%;" colspan="2">MOVi-E</th>
+                        <th style="width: 17.5%;" colspan="2">ScanNet</th>
+                        <th style="width: 17.5%;" colspan="2">YCB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Model</b> </td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2209.14860" target="_blank">DINOSAUR</a></td>
+                        <td>67.0</td>
+                        <td>34.5</td>
+                        <td>71.1</td>
+                        <td>24.2</td>
+                        <td>57.4</td>
+                        <td>40.8</td>
+                        <td>60.2</td>
+                        <td>42.2</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2305.11281" target="_blank">SlotDiffusion</a></td>
+                        <td>66.9</td>
+                        <td>43.6</td>
+                        <td>67.6</td>
+                        <td>26.4</td>
+                        <td>52.0</td>
+                        <td>51.7</td>
+                        <td>62.5</td>
+                        <td>59.2</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2312.00648" target="_blank">SPOT</a></td>
+                        <td>63.0</td>
+                        <td>40.8</td>
+                        <td>47.8</td>
+                        <td>21.5</td>
+                        <td>48.6</td>
+                        <td>43.2</td>
+                        <td>52.9</td>
+                        <td>45.1</td>
+                    </tr>
+                    <tr style="background-color: rgb(169, 218, 233);">
+                        <td>FT-DINOSAUR (ViT-S/14)</td>
+                        <td>71.3</td>
+                        <td>44.2</td>
+                        <td>71.1</td>
+                        <td>29.9</td>
+                        <td>54.8</td>
+                        <td>48.4</td>
+                        <td>67.4</td>
+                        <td>54.5</td>
+                    </tr>
+                    <tr style="background-color: rgb(169, 218, 233);">
+                        <td>FT-DINOSAUR (ViT-B/14)</td>
+                        <td>73.3</td>
+                        <td>42.9</td>
+                        <td>69.7</td>
+                        <td>27.9</td>
+                        <td>55.8</td>
+                        <td>48.6</td>
+                        <td>70.1</td>
+                        <td>54.1</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2304.02643" target="_blank">SAM (comp.)</a></td>
+                        <td>57.6</td>
+                        <td>45.3</td>
+                        <td>38.5</td>
+                        <td>27.4</td>
+                        <td>45.8</td>
+                        <td>45.5</td>
+                        <td>46.9</td>
+                        <td>40.9</td>
+                    </tr>
+                    <tr style="background-color: rgb(137, 219, 193);">
+                        <td><a href="https://arxiv.org/abs/2304.02643" target="_blank">SAM (best)</a></td>
+                        <td>79.7</td>
+                        <td>73.5</td>
+                        <td>84.7</td>
+                        <td>69.7</td>
+                        <td>62.2</td>
+                        <td>64.7</td>
+                        <td>69.4</td>
+                        <td>69.8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;"></th>
+                        <th style="width: 17.5%;" colspan="2">ClevrTex</th>
+                        <th style="width: 17.5%;" colspan="2">PASCALVOC</th>
+                        <th style="width: 17.5%;" colspan="2">EntitySeg</th>
+                        <th style="width: 17.5%;" colspan="2">Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Model</b> </td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                        <td><b>FG-ARI</b></td>
+                        <td><b>mBO</b></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2209.14860" target="_blank">DINOSAUR </a></td>
+                        <td>82.5</td>
+                        <td>35.2</td>
+                        <td>24.0</td>
+                        <td>37.2</td>
+                        <td>43.5</td>
+                        <td>19.4</td>
+                        <td>65.2</td>
+                        <td>33.0</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2305.11281" target="_blank">SlotDiffusion</a></td>
+                        <td>77.0</td>
+                        <td>45.0</td>
+                        <td>21.1</td>
+                        <td>42.0</td>
+                        <td>43.7</td>
+                        <td>25.1</td>
+                        <td>62.6</td>
+                        <td>41.3</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arxiv.org/abs/2312.00648" target="_blank">SPOT</a></td>
+                        <td>63.3</td>
+                        <td>40.0</td>
+                        <td>21.2</td>
+                        <td>50.6</td>
+                        <td>41.7</td>
+                        <td>27.4</td>
+                        <td>53.0</td>
+                        <td>37.0</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: rgb(169, 218, 233);">FT-DINOSAUR (ViT-S/14)</td>
+                        <td style="background-color: rgb(169, 218, 233);">86.0</td>
+                        <td style="background-color: rgb(169, 218, 233);">50.1</td>
+                        <td style="background-color: rgb(169, 218, 233);">24.0</td>
+                        <td style="background-color: rgb(169, 218, 233);">37.6</td>
+                        <td style="background-color: rgb(169, 218, 233);">48.1</td>
+                        <td style="background-color: rgb(169, 218, 233);">28.4</td>
+                        <td style="background-color: rgb(169, 218, 233);">67.8</td>
+                        <td style="background-color: rgb(169, 218, 233);">42.5</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: rgb(169, 218, 233);">FT-DINOSAUR (ViT-B/14)</td>
+                        <td style="background-color: rgb(169, 218, 233);">83.9</td>
+                        <td style="background-color: rgb(169, 218, 233);">45.9</td>
+                        <td style="background-color: rgb(169, 218, 233);">25.9</td>
+                        <td style="background-color: rgb(169, 218, 233);">37.8</td>
+                        <td style="background-color: rgb(169, 218, 233);">49.7</td>
+                        <td style="background-color: rgb(169, 218, 233);">29.0</td>
+                        <td style="background-color: rgb(169, 218, 233);">68.0</td>
+                        <td style="background-color: rgb(169, 218, 233);">40.8</td>
+                    </tr>
+                    <tr class="special-highlight">
+                        <td><a href="https://arxiv.org/abs/2304.02643" target="_blank">SAM (comp.)</a></td>
+                        <td>82.9</td>
+                        <td>70.3</td>
+                        <td>31.0</td>
+                        <td>51.5</td>
+                        <td>25.9</td>
+                        <td>16.5</td>
+                        <td>53.5</td>
+                        <td>45.7</td>
+                    </tr>
+                    <tr class="special-highlight">
+                        <td style = "background-color: rgb(137, 219, 193);"><a href="https://arxiv.org/abs/2304.02643" target="_blank">SAM (best)</a></td>
+                        <td style = "background-color: rgb(137, 219, 193);">94.0</td>
+                        <td style = "background-color: rgb(137, 219, 193);">90.0</td>
+                        <td  style = "background-color: rgb(137, 219, 193);">31.1</td>
+                        <td style = "background-color: rgb(137, 219, 193);">64.2</td>
+                        <td style = "background-color: rgb(137, 219, 193);">53.4</td>
+                        <td style = "background-color: rgb(137, 219, 193);">51.0</td>
+                        <td style = "background-color: rgb(137, 219, 193);">76.1</td>
+                        <td style = "background-color: rgb(137, 219, 193);">73.2</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+      <div class="container content is-max-desktop">
+        <h2 class="title is-3">Implementation</h2>
+        
+        <ul>
+          <li><a href="https://github.com/amazon-science/object-centric-learning-framework">Object-centric Learning Framework</a>: Official codebase used for producing the FT-DINOSAUR experiments</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container content is-max-desktop">
+        <h2 class="title is-3">Related Projects</h2>
+        <ul>
+        <li><a href="https://arxiv.org/abs/2209.14860">DINOSAUR (ICLR 2023)</a>: object-centric representations for real-world images using self-supervised feature reconstruction.</li>
+        <li><a href="https://arxiv.org/abs/2306.04829">VideoSAUR (NeurIPS 2023)</a>: object-centric representations for real-world videos using a DINOSAUR-style framework and a novel temporal similarity loss</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image carousel -->
+  <!--<section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <img src="./static/images/model.png" height="200" alt="DINOSAUR model"/>
+          
+          <h2 class="subtitle has-text-centered"> <br>
+            
+          </h2>
+        </div>
+    </div>
+  </div>
+  </div>
+  </section>-->
+  <!-- End image carousel -->
+
+  <!-- Youtube video -->
+  <!-- <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+
+        <h2 class="title is-3">Video Presentation</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            
+            <div class="publication-video">
+
+              <iframe src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End youtube video -->
+
+  <!-- Paper poster -->
+  <!--
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title">Poster</h2>
+        <iframe src="" width="100%" height="756">
+            </iframe>
+          
+        </div>
+      </div>
+    </section>-->
+  <!--End paper poster -->
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
+            
+        </code></pre>
+      </div>
+  </section>
+  <!--End BibTex citation -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+              <!-- You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> 
+              This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>. -->
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
