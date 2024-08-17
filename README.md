@@ -1,3 +1,3 @@
-# Finetuned DINOSAUR
+# FT-DINOSAUR
 
-Website for Finetuned DINOSAUR.
+Website for FT-DINOSAUR model: https://rw-ocrl.github.io/ftdinosaur-paper/
