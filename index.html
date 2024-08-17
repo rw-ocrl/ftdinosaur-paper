@@ -7,7 +7,7 @@
   <meta name="description" content="FT-DINOSAUR: Zero-Shot Object-Centric Representation Learning">
   <meta property="og:title" content="FT-DINOSAUR"/>
   <meta property="og:description" content="FT-DINOSAUR: Zero-Shot Object-Centric Representation Learning"/>
-  <meta property="og:url" content="https://dinosaur-paper.github.io/"/>
+  <meta property="og:url" content="https://rw-ocrl.github.io/ftdinosaur-paper/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <!-- <meta property="og:image" content="" />
   <meta property="og:image:width" content="1200"/>
@@ -16,8 +16,8 @@
   <meta name="twitter:title" content="FT-DINOSAUR">
   <meta name="twitter:description" content="FT-DINOSAUR: Zero-Shot Object-Centric Representation Learning">
   <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
-  <!--<meta name="twitter:image" content="https://zadaianchuk.github.io/videosaur/static/images/sim_loss-1.png">
-  <meta name="twitter:card" content="summary_large_image">-->
+  <meta name="twitter:image" content="https://rw-ocrl.github.io/ftdinosaur-paper/static/images/model.png">
+  <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="object-centric representations, scene decomposition, zero-shot transfer, dinosaur, object-centric learning, finetuning, real world">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,35 +56,37 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://aniket-didolkar.github.io/" target="_blank">Aniket Didolkar*</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://aniket-didolkar.github.io/" target="_blank">Aniket Didolkar</a>*<sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
               </span>
               <span class="author-block">
-                <a href="https://zadaianchuk.github.io/" target="_blank">Andrii Zadaianchuk</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
-              </span>
+                <a href="https://zadaianchuk.github.io/" target="_blank">Andrii Zadaianchuk</a><sup>3</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span><br />
               <span class="author-block">
                 <a href="https://anirudh9119.github.io/" target="_blank">Anirudh Goyal</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
               </span>
               <span class="author-block">
-                <a href="https://home.cs.colorado.edu/~mozer/index.php" target="_blank">Michael Mozer</a><sup>3</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://home.cs.colorado.edu/~mozer/index.php" target="_blank">Michael Mozer</a><sup>4</sup>&nbsp;&nbsp;&nbsp;&nbsp;
               </span>
               <span class="author-block">
                 <a href="https://yoshuabengio.org/" target="_blank">Yoshua Bengio</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
-              </span>
+              </span><br />
               <span class="author-block">
                 <a href="https://is.mpg.de/person/gmartius" target="_blank">Georg Martius</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
               </span>
               <span class="author-block">
-                <a href="https://is.mpg.de/person/mseitzer" target="_blank">Max Seitzer*</a><sup>1</sup>
+                <a href="https://is.mpg.de/person/mseitzer" target="_blank">Maximilian Seitzer</a>*<sup>1</sup>
               </span>
             </div>
 
-            <div class="is-size-5 publication-authors">
+            <div class="is-size-6 publication-authors">
               <span class="author-block"><sup>1</sup>Max Planck Institute for Intelligent Systems, Tübingen</span><br />
+              <span class="author-block">and University of Tübingen</span><br />
               <span class="author-block"><sup>2</sup>Mila, Université de Montréal</span><br />
-              <span class="author-block"><sup>3</sup>University of Colorado, Boulder</span><br />
+              <span class="author-block"><sup>3</sup>University of Amsterdam</span><br />
+              <span class="author-block"><sup>4</sup>University of Colorado, Boulder</span><br />
 
             </div>
-            <div class="is-size-5" style="padding-top: 0.25em;">
+            <div class="is-size-6" style="padding-top: 0.25em;">
               <span class="author-block">*Equal Contribution</span>
             </div>
             <div class="column has-text-centered">
@@ -116,7 +118,7 @@
 
               <!-- Github link -->
               <span class="link-block">
-                <a href="mailto:maximilian.seitzer@tuebingen.mpg.de" target="_blank"
+                <a href="mailto:maximilian.seitzer@uni-tuebingen.de" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <i class="fa fa-envelope"></i>
@@ -159,8 +161,8 @@
             <p>
               FT-DINOSAUR, which stands for <i>Finetuned</i> DINOSAUR, is a model for learning general-purpose object-centric representations. 
               Once trained on a real-world dataset like COCO, FT-DINOSAUR transfers to a diverse range of real-world and synthetic domains. 
-              To achieve this FT-DINOSAUR builds upon <a href = "https://arxiv.org/abs/2209.14860" target="_blank">DINOSAUR</a> and finetunes the pretrained model used in DINOSAUR for the task of object discovery. 
-              In the paper, we show that FT-DINOSAUR achieves state-of-the-art object-discovery performance and also exhibits strong zero-shot transerability across 8 different datasets.
+              To achieve this, FT-DINOSAUR builds upon <a href = "https://arxiv.org/abs/2209.14860" target="_blank">DINOSAUR</a> and finetunes the pre-trained model used in DINOSAUR for the task of object discovery. 
+              In the paper, we show that FT-DINOSAUR achieves state-of-the-art object discovery performance and also exhibits strong zero-shot transerability across 8 different datasets.
            </p>
           </div>
         </div>
@@ -178,14 +180,14 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <div style="text-align: center;">
-              <img src="./static/images/model.png" style="width: 90%;" alt="DINOSAUR model"/>
+              <img src="./static/images/model.jpg" style="width: 90%;" alt="FT-DINOSAUR model"/>
             </div>
             <div class="content has-text-justified"><br />
               The FT-DINOSAUR model is trained in two stages:
               <ul>
                <li>In the first stage, the image is passed through a trainable DINOv2 encoder which outputs a set of patch features. 
-              These patch features are grouped by slot attention into a set of slots. The model is trained by reconstructing the original (pretrained) set of DINOv2 features. </li>
-               <li>In the second stage, we reinitialize the model from the parameters obtained from the first stage and employ a similar training pipeline as the first stage while providing input images at a higher resulution of 518 x 518.</li>
+              These patch features are grouped by slot attention into a set of slots. The model is trained by reconstructing the original (pre-trained) set of DINOv2 features. </li>
+               <li>In the second stage, the model is re-initialized from the parameters obtained from the first stage and employ a similar training pipeline as the first stage, while providing input images at a higher resulution of 518 x 518.</li>
              </ul>
             </div>
           </div>
@@ -212,10 +214,10 @@
                 <li><a onclick="showDataset(0)" class="click" id="click-0" style="font-weight: bold;">COCO</a></li>
                 <li><a onclick="showDataset(1)" class="click" id="click-1" style="font-weight: normal;">Pascal VOC</a></li>
                 <li><a onclick="showDataset(2)" class="click" id="click-2" style="font-weight: normal;">EntitySeg</a></li>
-                <li><a onclick="showDataset(3)" class="click" id="click-3" style="font-weight: normal;">CLEVrTex</a></li>
-                <li><a onclick="showDataset(4)" class="click" id="click-4" style="font-weight: normal;">MoVI-C</a></li>
-                <li><a onclick="showDataset(5)" class="click" id="click-5" style="font-weight: normal;">MoVI-E</a></li>
-                <li><a onclick="showDataset(6)" class="click" id="click-6" style="font-weight: normal;">SCANNET</a></li>
+                <li><a onclick="showDataset(3)" class="click" id="click-3" style="font-weight: normal;">ClevrTex</a></li>
+                <li><a onclick="showDataset(4)" class="click" id="click-4" style="font-weight: normal;">MOVi-C</a></li>
+                <li><a onclick="showDataset(5)" class="click" id="click-5" style="font-weight: normal;">MOVi-E</a></li>
+                <li><a onclick="showDataset(6)" class="click" id="click-6" style="font-weight: normal;">ScanNet</a></li>
             </ul>
             </aside>
           </div>
@@ -251,7 +253,7 @@
         </div>
 
         <div class="is-centered has-text-centered">
-            <p>FT-DINOSAUR is trained on COCO and transferred to 7 other datasets. We visualize the masks obtained from FT-DINOSAUR in comparison to other baselines on all the datasets.</h2>
+            <p>FT-DINOSAUR is trained on COCO and transferred to 7 other datasets. We visualize the masks obtained from FT-DINOSAUR in comparison to other baselines.</h2>
         </div>
       </div>
     </div>
@@ -291,6 +293,8 @@
             <p class="description">
                 Comparison performed on the COCO dataset. FT-DINOSAUR uses a ViT-B/14 encoder with top-k decoding and high-resolution adaptation. Results for DINOSAUR and FT-DINOSAUR average over 3 seeds.
                 SPOT, SlotDiffusion, SAM were evaluated using official checkpoints.
+                We evalute foreground adjusted rand index (FG-ARI), mean best overlap (mBO), panoptic adjusted rand index (P-ARI), and panoptic quality (PQ). 
+                Refer to the paper for details.
             </p>
             <table class="table is-striped is-hoverable is-fullwidth">
                 <thead>
@@ -321,7 +325,7 @@
                         <td><a href="https://arxiv.org/abs/2312.00648" target="_blank">SPOT </a></td>
                         <td>37.0</td>
                         <td>34.8</td>
-                        <td>52.4</td>
+                        <td><b>52.4</b></td>
                         <td>21.3</td>
                     </tr>
                     
@@ -329,7 +333,7 @@
                         <div><td><b>FT-DINOSAUR</b></td></div>
                         <div><td><b>48.8</b></td></div>
                         <div><td><b>36.3</b></td></div>
-                        <div><td><b>49.4</b></td></div>
+                        <div><td>49.4</td></div>
                         <div><td><b>23.9</b></td></div>
                     </tr>
 
@@ -577,9 +581,10 @@
     <div class="hero-body">
       <div class="container content is-max-desktop">
         <h2 class="title is-3">Implementation</h2>
-        
         <ul>
-          <li><a href="https://github.com/amazon-science/object-centric-learning-framework">Object-centric Learning Framework</a>: Official codebase used for producing the FT-DINOSAUR experiments</li>
+          <li><a href="https://github.com/rw-ocrl/ftdinosaur-inference">Pre-trained FT-DINOSAUR models and inference code</a></li>
+          <li>Training code for FT-DINOSAUR: coming soon</li>
+          <li>Zero-shot benchmark: coming soon</li>
         </ul>
       </div>
     </div>
@@ -590,8 +595,8 @@
       <div class="container content is-max-desktop">
         <h2 class="title is-3">Related Projects</h2>
         <ul>
-        <li><a href="https://arxiv.org/abs/2209.14860">DINOSAUR (ICLR 2023)</a>: object-centric representations for real-world images using self-supervised feature reconstruction.</li>
-        <li><a href="https://arxiv.org/abs/2306.04829">VideoSAUR (NeurIPS 2023)</a>: object-centric representations for real-world videos using a DINOSAUR-style framework and a novel temporal similarity loss</li>
+        <li><a href="https://dinosaur-paper.github.io/">DINOSAUR (ICLR 2023)</a>: object-centric representations for real-world images using self-supervised feature reconstruction.</li>
+        <li><a href="https://martius-lab.github.io/videosaur/">VideoSAUR (NeurIPS 2023)</a>: object-centric representations for real-world videos using a DINOSAUR-style framework and a novel temporal similarity loss</li>
         </ul>
       </div>
     </div>
@@ -655,7 +660,11 @@
       <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
         <pre><code>
-            
+          @misc{Didolkar2024ZeroShotOCRL,
+            title={Zero-Shot Object-Centric Representation Learning},
+            author={Didolkar, Aniket and Zadaianchuk, Andrii and Goyal, Anirudh and Mozer, Mike and Bengio, Yoshua and Martius, Georg and Seitzer, Maximilian},
+            year={2024},
+          }
         </code></pre>
       </div>
   </section>
